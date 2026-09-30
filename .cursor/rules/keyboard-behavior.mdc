@@ -1,0 +1,20 @@
+---
+globs: ["**/presentation/**/*.dart", "**/widgets/**/*.dart"]
+description: Keyboard dismiss behavior for text fields and forms
+---
+# Keyboard Behavior
+Applies to any screen with text fields/forms. Does NOT apply to chat/messaging screens — see exception below.
+
+## Dismiss the keyboard when:
+- the user taps anywhere outside the field: wrap the screen's body in a GestureDetector with `onTap: () => FocusScope.of(context).unfocus()`, `behavior: HitTestBehavior.opaque` so taps on empty space register
+- the user presses "Done"/submit on the keyboard: set `textInputAction: TextInputAction.done` (or `.next` if chaining to another field) and call `FocusScope.of(context).unfocus()` in `onEditingComplete` or `onFieldSubmitted`
+- the user scrolls a scrollable containing the field: set `keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag` on the ListView/SingleChildScrollView/CustomScrollView
+
+## Exception — chat/messaging screens
+- do NOT auto-dismiss on scroll in a chat/message list — the user needs to keep typing while reviewing earlier messages
+- do NOT dismiss on tap-outside if the tap target is the message list itself, since that's the primary interaction surface
+- "Done"/send button behavior in chat should submit the message, not just dismiss the keyboard
+
+## General
+- every screen with a form: apply all three dismiss behaviors above by default unless it's identified as a chat/messaging screen
+- multi-field forms: chain fields with `TextInputAction.next` + `FocusNode`s, only the last field uses `.done`

@@ -1,0 +1,12 @@
+---
+globs: ["**/*router*.dart", "**/*route*.dart", "**/presentation/**/*.dart"]
+description: Navigation conventions using go_router
+---
+# Navigation (go_router)
+- all routes declared in one central router file (e.g. app_router.dart) using GoRoute/ShellRoute — never scattered route definitions across features
+- route paths as named constants (e.g. AppRoutes.login = '/login'), never magic string literals repeated at call sites
+- navigate via context.go() / context.push() / context.pushNamed() — never Navigator.of(context).push(MaterialPageRoute(...))
+- pass data between screens via route parameters/extra, not global state, unless the data is already owned by a Cubit/repository
+- nested/feature routes grouped under a parent route matching the feature folder structure
+- route guards/redirects (auth-protected routes) handled in GoRouter's redirect callback, not inside individual page widgets
+- each feature exposes its own routes in a *_routes.dart file inside its folder; the central router file only aggregates them

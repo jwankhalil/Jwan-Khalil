@@ -1,0 +1,42 @@
+---
+globs: ["**/domain/**/*.dart", "**/data/**/*.dart", "**/*_cubit.dart", "**/core/error/**/*.dart"]
+description: Error handling conventions using Either, Failure types, and a centralized ErrorHandler wrapper
+---
+# Error Handling
+
+Centralized wrapper pattern — repositories never write their own try/catch. Structure lives in lib/core/error/:
+
+## 1. Exception classes (lib/core/error/exceptions.dart)
+- one class per error kind, implements Exception: ServerException(message), UnauthenticatedException(), CacheException(), NetworkException()
+- thrown only from the data layer (data sources), never from domain or presentation
+
+## 2. Failure classes (lib/core/error/failures.dart)
+- abstract Failure extends Equatable, with a nullable message
+- one subclass per Exception type it corresponds to: ServerFailure, UnauthenticatedFailure, CacheFailure, NetworkFailure, ValidationFailure
+- never a generic Failure('error') — always a specific type carrying a message/code from the source
+
+## 3. Exception mapper (lib/core/error/exception_mapper.dart)
+- one class responsible for converting a dio error/response into the correct typed Exception based on status code / DioExceptionType
+- 401 -> UnauthenticatedException, timeout/no connection -> NetworkException, other non-2xx -> ServerException(message from response body)
+- this is the ONLY place status codes are inspected — data sources never branch on status code themselves
+
+## 4. ErrorHandler manager (lib/core/error/error_handler.dart)
+- exposes one generic method: `Future<Either<Failure, T>> wrapHandling<T>({required Future<T> Function() tryCall, Future<T?> Function()? tryCallLocal})`
+- runs tryCall(), catches each typed Exception, maps it to the matching Failure, returns Left(failure)
+- if tryCallLocal is provided and the remote call fails, fall back to it (e.g. cached data) before returning Left — return Right(local result) if it succeeds
+- on success, returns Right(result)
+- every repository method wraps its logic in this single call — no repository writes its own try/catch
+
+## Usage across layers
+- data sources: throw typed exceptions only, never catch them
+- repository implementations: call `errorHandler.wrapHandling(tryCall: () => dataSource.doThing())`, return the Either directly — this is the only place wrapHandling is called
+- use cases: call the repository, pass the Either straight through, no re-wrapping
+- Cubits: consume Either via fold(), mapping Left(failure) to an Error state and Right(data) to a Success state — UI never inspects raw exceptions
+- domain and presentation never import dio or know about status codes — only exception_mapper.dart does
+
+## Presenting errors — pick based on context, not one default pattern
+- form/input validation errors → inline, next to the field
+- action failures (failed submit, failed like/follow, non-critical action) → SnackBar, non-blocking
+- full-screen/critical load failures (failed to load a whole page/list) → inline error state with retry button, replacing the content area
+- auth/session failures (401, forced logout) → Dialog, blocking, requires acknowledgment before continuing
+- always give the user a way to recover (retry action, dismiss, re-auth) — never a dead-end error with no next step

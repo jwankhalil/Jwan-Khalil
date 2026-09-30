@@ -1,0 +1,11 @@
+---
+globs: ["**/presentation/**/*.dart", "**/widgets/**/*.dart"]
+description: Colors, styles, and theming conventions
+---
+# Styling & Theme
+- colors only from lib/core/theme/app_colors.dart — never inline Color(0x...) or Colors.xyz in a widget
+- text styles only from lib/core/theme/app_text_styles.dart — never inline TextStyle(...) constructed ad hoc in a widget
+- spacing/radius/sizing constants centralized in a shared constants file (e.g. app_dimens.dart) — no magic numbers for padding/margin/borderRadius
+- pull values via Theme.of(context) or the shared constant files, never duplicate a color/style definition per screen
+- RTL-safe by default: EdgeInsetsDirectional, AlignmentDirectional, Icons that respect direction — never hardcoded left/right or start/end assumptions
+- prefer const constructors wherever the widget tree allows it

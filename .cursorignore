@@ -1,0 +1,25 @@
+# Build artifacts
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+
+# Generated code (freezed, json_serializable, get_it/injectable, go_router)
+**/*.freezed.dart
+**/*.g.dart
+**/*.config.dart
+**/*.gr.dart
+
+# Platform folders (rarely need AI edits, waste indexing budget)
+android/
+ios/
+web/
+windows/
+linux/
+macos/
+
+# IDE/misc
+.idea/
+.vscode/
+*.iml

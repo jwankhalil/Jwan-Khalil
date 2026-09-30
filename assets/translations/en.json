@@ -1,0 +1,77 @@
+{
+  "nav": {
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "resume": "Resume",
+    "theme": "Toggle theme",
+    "language": "Switch language",
+    "language_short": "AR"
+  },
+  "hero": {
+    "eyebrow": "Available for opportunities",
+    "tagline": "I build responsive, production-ready Flutter apps with Clean Architecture, Cubit, and a sharp eye for craft.",
+    "cta_contact": "Get in touch",
+    "cta_work": "View work",
+    "cta_resume": "Download resume"
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "Building apps that scale with teams",
+    "subtitle": "From freelance dashboards to 10+ client apps in production at BSS FLOW."
+  },
+  "experience": {
+    "eyebrow": "Experience",
+    "title": "Where I've been shipping",
+    "subtitle": "Collaborating with product, design, and backend teams.",
+    "present": "Present"
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "Selected work",
+    "subtitle": "Apps spanning discovery, delivery, news, and operations.",
+    "view_code": "View code",
+    "github": "Open on GitHub"
+  },
+  "skills": {
+    "eyebrow": "Skills",
+    "title": "Tools I use daily",
+    "subtitle": "State management, architecture, networking, and UI systems."
+  },
+  "education": {
+    "eyebrow": "Background",
+    "title": "Education & credentials",
+    "subtitle": "Formal study, certifications, and languages.",
+    "degrees": "Education",
+    "certs": "Certifications",
+    "languages": "Languages"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Let's build something solid",
+    "subtitle": "Open to collaborations, freelance work, and full-time Flutter roles.",
+    "email_me": "Email me",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "copy_email": "Copy email",
+    "copied": "Email copied to clipboard",
+    "download_resume": "Download resume",
+    "resume_downloaded": "Resume download started",
+    "resume_failed": "Could not download resume"
+  },
+  "footer": {
+    "built_with": "Built with Flutter Web · Clean Architecture · Local content",
+    "rights": "All rights reserved."
+  },
+  "common": {
+    "loading": "Loading portfolio…",
+    "retry": "Retry"
+  },
+  "errors": {
+    "server": "Could not load portfolio data.",
+    "network": "Network error. Check your connection.",
+    "cache": "Could not read cached data."
+  }
+}

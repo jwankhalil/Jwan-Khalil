@@ -1,0 +1,35 @@
+[
+  {
+    "id": "exp-bss",
+    "company": "BSS FLOW",
+    "role": "Flutter Developer",
+    "employment_type": "Full-time",
+    "location": null,
+    "start_date": "2026-08-01",
+    "end_date": null,
+    "is_current": true,
+    "highlights": [
+      "Worked on 10+ Flutter applications delivered for clients.",
+      "Develop and maintain features for company Flutter applications with product and design teams.",
+      "Align with backend developers on API requirements for reliable integrations.",
+      "Participate in stand-ups, sprint planning, and code reviews in an agile team.",
+      "Translate requirements into clear, well-structured app features.",
+      "Share progress early and raise blockers to keep delivery moving."
+    ]
+  },
+  {
+    "id": "exp-freelance",
+    "company": "Freelance",
+    "role": "Flutter Developer",
+    "employment_type": "Contract — Restaurant Dashboard",
+    "location": null,
+    "start_date": "2024-01-01",
+    "end_date": "2024-12-31",
+    "is_current": false,
+    "highlights": [
+      "Built a responsive restaurant management dashboard using Flutter.",
+      "Designed and implemented UI components for menu, orders, and data display.",
+      "Integrated REST APIs for real-time restaurant data and operations."
+    ]
+  }
+]

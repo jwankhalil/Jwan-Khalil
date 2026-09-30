@@ -1,0 +1,42 @@
+[
+  {
+    "id": "proj-bookly",
+    "title": "Bookly App",
+    "description": "Cross-platform book discovery app fetching and displaying books from the Google Books API.",
+    "github_url": "https://github.com/jwankhalil/Bookly.git",
+    "live_url": null,
+    "image_url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=1200&q=80",
+    "tech_stack": ["Cubit", "go_router", "Clean Architecture", "REST API", "Responsive UI"],
+    "is_featured": true
+  },
+  {
+    "id": "proj-delivery",
+    "title": "Delivery App",
+    "description": "Complete food delivery app with product catalog, cart management, payment flow, and order history.",
+    "github_url": "https://github.com/jwankhalil/Delivery-App.git",
+    "live_url": null,
+    "image_url": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=1200&q=80",
+    "tech_stack": ["GetX", "Custom Theming", "Dart", "Responsive UI"],
+    "is_featured": true
+  },
+  {
+    "id": "proj-news",
+    "title": "News App",
+    "description": "News aggregation app integrating a third-party REST API with dynamic theming support.",
+    "github_url": "https://github.com/jwankhalil/news-app-flutter.git",
+    "live_url": null,
+    "image_url": "https://images.unsplash.com/photo-1504711434719-226fd777bee7?w=1200&q=80",
+    "tech_stack": ["Provider", "Dio", "Custom Theming", "REST API"],
+    "is_featured": true
+  },
+  {
+    "id": "proj-dashboard",
+    "title": "Restaurant Dashboard",
+    "description": "Responsive restaurant management dashboard for menus, orders, and operational data.",
+    "github_url": null,
+    "live_url": null,
+    "image_url": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&q=80",
+    "tech_stack": ["Flutter", "REST API", "Responsive UI"],
+    "is_featured": true
+  }
+]

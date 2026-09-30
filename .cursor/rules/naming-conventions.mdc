@@ -1,0 +1,15 @@
+---
+alwaysApply: true
+---
+# Naming Conventions
+- files: snake_case.dart matching the primary class inside (e.g. login_cubit.dart -> LoginCubit)
+- classes/enums: PascalCase; variables/functions: camelCase; constants: lowerCamelCase (or SCREAMING_SNAKE only for compile-time consts shared globally)
+- suffixes are meaningful and consistent:
+  - *_cubit.dart / *_state.dart for Cubit + its state
+  - *_repository.dart (interface, domain) vs *_repository_impl.dart (implementation, data)
+  - *_model.dart (data layer, freezed+json) vs plain entity name with no suffix (domain layer)
+  - *_page.dart for a full screen, *_view.dart or *_widget.dart for a reusable piece
+  - *_usecase.dart for domain use cases
+- booleans read as a question: isLoading, hasError, canSubmit — never loading, error, submit as a bool name
+- avoid abbreviations unless extremely common (id, url) — no ambiguous shortening
+- match existing naming in the feature you're editing over introducing a new convention

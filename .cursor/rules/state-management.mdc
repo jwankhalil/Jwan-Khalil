@@ -1,0 +1,12 @@
+---
+globs: ["**/*_cubit.dart", "**/*_state.dart"]
+description: Cubit state management conventions
+---
+# State Management (Cubit)
+- Cubit only — no BLoC event classes, no other state management solution
+- states are sealed/freezed unions: Initial, Loading, Success(data), Error(failure) — never nullable-field guessing (e.g. no `isLoading + data + error` all on one mutable state unless freezed union is overkill for a trivial toggle)
+- Cubits depend only on domain use cases/repositories, injected via get_it constructor injection — never on data sources or dio directly
+- one Cubit per feature/screen scope; do not share a single Cubit across unrelated widgets
+- no async work inside build(); trigger via Cubit methods from initState, route entry, or user interaction
+- emit new immutable state objects — never mutate and re-emit the same instance
+- dispose/close resources (streams, controllers) in the Cubit's close() override

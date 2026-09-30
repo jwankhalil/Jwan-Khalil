@@ -1,0 +1,23 @@
+---
+alwaysApply: true
+---
+# Tech Stack — use exactly these, never suggest alternatives
+- State management: flutter_bloc — Cubit only, never Bloc events, never Provider/Riverpod/GetX
+- Navigation: go_router — never Navigator 1.0 raw routes, never auto_route
+- Networking: dio — never http package
+- Dependency injection: get_it — never Provider/InheritedWidget for DI, never manual singletons
+- Functional error handling: dartz (Either<Failure, T>) — never fpdart
+- Immutability/equality: freezed (state unions, data models) + equatable (simple domain entities) — never manual ==/hashCode
+- Localization: easy_localization with per-locale JSON — never hardcoded strings
+- Responsive: flutter_screenutil for sizing (matches Figma designSize exactly) + custom LayoutBuilder/breakpoint layer for layout structure
+- If a task seems to need a package not listed here, ask before adding one.
+
+# Architecture
+- Clean Architecture, feature-based: lib/features/<feature>/{data,domain,presentation}
+- domain layer: entities, repository interfaces, use cases — zero Flutter/package imports, pure Dart
+- data layer: models (freezed/equatable), data sources, repository implementations
+- presentation layer: cubit, pages, widgets — no business logic here
+- dependency injection via get_it; register all dependencies in a single injection_container.dart per feature, composed into one root locator
+- SOLID, applied practically: one class = one reason to change; depend on repository interfaces, never concrete implementations; small focused abstractions over one large interface; presentation never imports data layer or packages like dio directly
+- before creating a new feature, mirror the folder structure of an existing feature exactly
+- keep classes and functions small; extract instead of growing a single file

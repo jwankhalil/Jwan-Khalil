@@ -1,0 +1,18 @@
+[
+  {
+    "id": "edu-master",
+    "degree": "ماجستير في علوم الويب",
+    "institution": "الجامعة الافتراضية السورية (SVU)",
+    "start_date": "2025-01-01",
+    "end_date": null,
+    "is_current": true
+  },
+  {
+    "id": "edu-bachelor",
+    "degree": "بكالوريوس في هندسة المعلوماتية",
+    "institution": "جامعة حلب",
+    "start_date": "2019-09-01",
+    "end_date": "2024-09-01",
+    "is_current": false
+  }
+]

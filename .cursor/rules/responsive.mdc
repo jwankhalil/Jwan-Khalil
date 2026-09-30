@@ -1,0 +1,27 @@
+---
+globs: ["**/presentation/**/*.dart"]
+description: Responsive design conventions — matching Figma designs exactly using flutter_screenutil
+---
+# Responsive Design
+Designs come from Figma (screenshots or handoff) and must match exactly — not just "look responsive."
+
+## Sizing — flutter_screenutil
+- use flutter_screenutil for all sizes, fonts, and spacing pulled from a Figma design
+- ScreenUtilInit's designSize MUST match the Figma artboard dimensions exactly (check the frame size in Figma before setting this, e.g. Size(375, 812) — never guess it)
+- widths/heights from Figma: use .w / .h (e.g. a 24px width in Figma -> 24.w)
+- font sizes from Figma: use .sp (e.g. 16.sp)
+- radius/corner values: use .r
+- never hardcode a raw pixel number from Figma without wrapping it in .w/.h/.sp/.r — a raw number breaks proportional scaling on other devices
+- when given a Figma screenshot, extract exact values (spacing, font size, corner radius) rather than approximating — ask for the Figma file/dev-mode inspector values if a screenshot alone leaves a value ambiguous
+
+## Layout structure — LayoutBuilder / breakpoints
+flutter_screenutil scales sizes, it does not decide layout structure — that's still LayoutBuilder's job
+- breakpoints defined once in lib/core/theme/app_breakpoints.dart (mobile <600, tablet 600-1024, desktop >1024)
+- context extension (context.isMobile / isTablet / isDesktop) for screen-level layout decisions
+- LayoutBuilder for widget-level layout decisions (column count, side-by-side vs stacked)
+- one adaptive layout branch per screen, not scattered conditionals in child widgets
+
+## Rules that still apply regardless of tool
+- never disable or override the user's system font scale (textScaler) — accessibility takes priority over exact pixel matching
+- test at common breakpoints (360, 600, 768, 1024, 1440) when reviewing generated UI
+- if a Figma value and an accessibility requirement conflict (e.g. a font too small to scale), flag it rather than silently picking one

@@ -1,0 +1,15 @@
+---
+globs: ["**/presentation/**/*.dart", "**/widgets/**/*.dart"]
+description: Clean code and widget file separation
+---
+# Clean Code — Widget Separation
+- extract a widget into its own file when EITHER is true:
+  - it exceeds ~40 lines, OR
+  - it mixes more than one responsibility (e.g. layout + business logic + styling, or two visually/functionally distinct sections)
+- don't split a genuinely cohesive unit just to hit the line count (e.g. a single form with several related fields can stay together even past 40 lines if it's still one responsibility)
+- don't leave a widget inline under 40 lines if it's already doing two unrelated things — extract by responsibility, not just by size
+- one widget = one file, named after the widget class (snake_case)
+- reusable pieces (buttons, cards, list tiles, form fields used in more than one place) always live in their own file under lib/core/widgets or the feature's widgets/ folder, never duplicated inline across screens
+- a page/view file should mostly compose smaller widgets, not contain deeply nested widget trees inline
+- if you're about to extract a widget, check lib/core/widgets first — it may already exist
+- extraction applies during scaffolding AND ongoing edits — if editing an existing widget pushes it over ~40 lines, extract at that point too, don't wait for a dedicated cleanup pass

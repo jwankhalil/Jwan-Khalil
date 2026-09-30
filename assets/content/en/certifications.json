@@ -1,0 +1,20 @@
+[
+  {
+    "id": "cert-1",
+    "title": "Flutter & Dart: Developing iOS, Android and Mobile Apps",
+    "issuer": "Coursera",
+    "credential_url": null
+  },
+  {
+    "id": "cert-2",
+    "title": "The Complete Flutter Development Bootcamp with Dart",
+    "issuer": "Udemy",
+    "credential_url": null
+  },
+  {
+    "id": "cert-3",
+    "title": "Deep Dive into Clean Architecture in Flutter",
+    "issuer": "Udemy",
+    "credential_url": null
+  }
+]

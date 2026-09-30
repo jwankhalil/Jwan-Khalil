@@ -1,0 +1,20 @@
+[
+  { "id": "s1", "category": "State Management", "name": "BLoC", "icon_key": "bloc" },
+  { "id": "s2", "category": "State Management", "name": "Cubit", "icon_key": "cubit" },
+  { "id": "s3", "category": "State Management", "name": "Provider", "icon_key": "provider" },
+  { "id": "s4", "category": "State Management", "name": "GetX", "icon_key": "getx" },
+  { "id": "s5", "category": "Architecture", "name": "Clean Architecture", "icon_key": "architecture" },
+  { "id": "s6", "category": "Architecture", "name": "Feature-based", "icon_key": "feature" },
+  { "id": "s7", "category": "Architecture", "name": "MVVM", "icon_key": "mvvm" },
+  { "id": "s8", "category": "APIs & Networking", "name": "REST API", "icon_key": "api" },
+  { "id": "s9", "category": "APIs & Networking", "name": "Dio", "icon_key": "dio" },
+  { "id": "s10", "category": "APIs & Networking", "name": "GraphQL", "icon_key": "graphql" },
+  { "id": "s11", "category": "Navigation & DI", "name": "go_router", "icon_key": "router" },
+  { "id": "s12", "category": "Navigation & DI", "name": "get_it", "icon_key": "di" },
+  { "id": "s13", "category": "Tools", "name": "Git", "icon_key": "git" },
+  { "id": "s14", "category": "Tools", "name": "GitHub", "icon_key": "github" },
+  { "id": "s15", "category": "Tools", "name": "Firebase", "icon_key": "firebase" },
+  { "id": "s16", "category": "UI", "name": "Responsive Design", "icon_key": "responsive" },
+  { "id": "s17", "category": "UI", "name": "Theming", "icon_key": "theme" },
+  { "id": "s18", "category": "UI", "name": "Material Design", "icon_key": "material" }
+]

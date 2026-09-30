@@ -1,0 +1,12 @@
+---
+globs: ["**/presentation/**/*.dart", "**/domain/**/*.dart", "assets/translations/**"]
+description: Localization conventions using easy_localization
+---
+# Localization
+- easy_localization with per-locale JSON files: assets/translations/en.json, assets/translations/ar.json — same key set in every locale file, no locale-specific extra keys
+- no hardcoded user-facing strings anywhere in presentation code — every string goes through .tr()
+- namespaced/nested keys matching feature structure, e.g. "auth.login.title", "auth.login.emailHint" — not flat generic keys like "title1"
+- Failure/error messages carry a translation key (e.g. "errors.network.timeout"), not a hardcoded string — the key is resolved with .tr() only at the UI layer, never inside domain/data layers
+- when adding a new string, add it to ALL locale JSON files at once, never just the default locale
+- pluralization and interpolation use easy_localization's built-in plural/named-arg support, not manual string concatenation
+- RTL: rely on easy_localization's locale-driven Directionality — don't manually force TextDirection anywhere

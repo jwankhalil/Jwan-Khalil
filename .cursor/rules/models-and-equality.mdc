@@ -1,0 +1,10 @@
+---
+globs: ["**/domain/**/*.dart", "**/data/**/*.dart", "**/*_state.dart"]
+description: Equatable and Freezed usage conventions
+---
+# Models, Entities & Equality
+- use freezed for: state classes (unions with multiple variants), and data models that need copyWith + immutability + generated equality
+- use plain equatable (no freezed) for: simple domain entities with no variants, where codegen is unnecessary overhead
+- never implement manual == / hashCode by hand — always freezed or equatable, no exceptions
+- domain entities stay framework-agnostic (equatable is fine, no json_serializable/freezed json annotations in domain — those belong on the data-layer model, which maps to the domain entity)
+- data-layer models (freezed + json_serializable) implement fromJson/toJson and map to/from domain entities via a toEntity()/fromEntity() method — never pass a raw data model into the domain/presentation layers

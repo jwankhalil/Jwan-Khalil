@@ -1,0 +1,18 @@
+[
+  {
+    "id": "edu-master",
+    "degree": "Master's Degree in Web Science",
+    "institution": "Syrian Virtual University (SVU)",
+    "start_date": "2025-01-01",
+    "end_date": null,
+    "is_current": true
+  },
+  {
+    "id": "edu-bachelor",
+    "degree": "Bachelor's Degree in Informatics Engineering",
+    "institution": "Aleppo University",
+    "start_date": "2019-09-01",
+    "end_date": "2024-09-01",
+    "is_current": false
+  }
+]
