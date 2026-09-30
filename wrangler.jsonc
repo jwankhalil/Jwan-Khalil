@@ -1,0 +1,12 @@
+﻿{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "jwan-khalil",
+  "compatibility_date": "2026-09-30",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "build/web",
+    "not_found_handling": "single-page-application"
+  }
+}

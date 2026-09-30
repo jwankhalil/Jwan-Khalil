@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Install Flutter (stable) on the Cloudflare Pages build machine
+# Install Flutter (stable) on the Cloudflare build machine
 FLUTTER_DIR="$HOME/flutter-sdk"
 
 if [ ! -d "$FLUTTER_DIR" ]; then
